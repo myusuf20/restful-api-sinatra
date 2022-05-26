@@ -1,0 +1,41 @@
+<html>
+  <style>
+    table, th, td {
+        border: 1px solid white;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 15px;
+        background-color: #96D4D4;
+    }
+  </style>
+  <table>
+    <tr>
+      <th>Item Name</th>
+      <td><%= name %></td>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <td><%= category %></td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td><%= price %></td>
+    </tr>
+  </table>
+
+  <table>
+    <% order.each do |order_item| %>
+      <tr>
+        <th>Buyer</th>
+        <td><%= order_item.buyer %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <form action="/items/<%= id %>/orders" method="POST">
+    <label for="buyer">Buyer:</label><br>
+    <input type="text" id="buyer" name="buyer"><br>
+    <input type="submit" value="Submit">
+  </form>
+</html>
